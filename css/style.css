@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, rgb(0, 150, 136)20%, rgb(220, 212, 206)20%);
+}
+
+.container {
+    max-width: 80%;
+    height: 95%;
+    background-color: white;
+    
+}
+
+.container-contact{
+    width: 35%;
+    height: 100%;
+    background-color: antiquewhite;
+}
+
+.container-message{
+    width: 65%;
+    height: 100%;
+    background-color: darkgray;
+}
+.container-card{
+    width: 100%;
+}
+
+.contenitore-messaggi{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 50px
+}
+
+.footer-container{
+    width: 100%;
+    height: 80px;
+    background-color: #8EDAFC;
+}
+
+.navbar{
+    height: 80px;
+    width: 100%;
+}
+
+.no-notifiche{
+    width: 100%;
+    height: 10%;
+background-color: #8EDAFC;
+}
+
+.notifica{
+    height: 100%;
+}
+
+
+.card{
+    width: 90%;
+    height: 100%;
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card>img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.utente-green{
+    justify-content: flex-end;
+    background-color: #D5F9BA;
+}
+
+.message{
+    display: flex;
+    width: 80%;
+}
+.interlocutore-white{
+    justify-content: flex-start;
+    background-color: white;
+}
+
+.utente-green, .interlocutore-white{
+    display: flex;
+    margin-top: 50px;
+}
