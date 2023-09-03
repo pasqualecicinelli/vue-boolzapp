@@ -1,8 +1,9 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 .wrapper {
     width: 100%;
     height: 100vh;
@@ -13,81 +14,117 @@
     max-width: 80%;
     height: 95%;
     background-color: white;
-    
+
 }
 
-.container-contact{
+.container-contact {
     width: 35%;
     height: 100%;
     background-color: antiquewhite;
 }
 
-.container-message{
+.container-message {
     width: 65%;
     height: 100%;
     background-color: darkgray;
 }
-.container-card{
+
+.container-card {
     width: 100%;
+    height: 70%;
 }
 
-.contenitore-messaggi{
+.contenitore-messaggi {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    min-height: 630px;
     margin: 10px 50px
 }
 
-.footer-container{
+.navbar {
+    height: 80px;
+    width: 100%;
+}
+
+.no-notifiche {
+    width: 100%;
+    height: 10%;
+    background-color: #8EDAFC;
+}
+
+.notifica {
+    height: 100%;
+}
+
+.card {
+    width: 90%;
+    height: 10%;
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.navImgName{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.userActive {
+    width: 20%;
+    height: 80px;
+    line-height: 80px;
+}
+
+.userActive>img{
+    margin-top: 0.75rem;
+}
+
+.info{
+width: 100%;
+
+}
+
+img {
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    vertical-align: inherit;
+}
+
+.container-fluid>.navImgName>img{
+    min-width:50px;
+}
+
+.utente-green {
+    background-color: #D5F9BA;
+    text-align: right;
+}
+
+.message-class {
+    width: 400px;
+    height: 40px;
+}
+
+.interlocutore-white {
+
+    background-color: white;
+
+}
+
+.utente-green,
+.interlocutore-white {
+    width: 60%;
+    margin-top: 50px;
+}
+
+.footer-container {
     width: 100%;
     height: 80px;
     background-color: #8EDAFC;
 }
 
-.navbar{
-    height: 80px;
-    width: 100%;
-}
-
-.no-notifiche{
-    width: 100%;
-    height: 10%;
-background-color: #8EDAFC;
-}
-
-.notifica{
-    height: 100%;
-}
-
-
-.card{
-    width: 90%;
-    height: 100%;
-    margin-top: 5px;
-    display: flex;
-    flex-wrap: wrap;
-}
-.card>img{
-    width: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.utente-green{
-    justify-content: flex-end;
-    background-color: #D5F9BA;
-}
-
-.message{
-    display: flex;
+.footer-container>.form-control{
     width: 80%;
-}
-.interlocutore-white{
-    justify-content: flex-start;
-    background-color: white;
-}
-
-.utente-green, .interlocutore-white{
-    display: flex;
-    margin-top: 50px;
+    height: 50px;
 }

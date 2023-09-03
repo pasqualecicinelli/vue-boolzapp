@@ -4,6 +4,10 @@ createApp({
     data() {
         return {
 
+            count: 0,
+            newDate: 'today',
+            newMessage: '',
+
             contacts: [
                 {
                     name: 'Michele',
@@ -168,5 +172,12 @@ createApp({
                 }
             ]
         }
+    },
+    methods: {
+        chousenUser(indexUser) {
+            this.count = indexUser;
+        },
+
     }
+
 }).mount('#app')

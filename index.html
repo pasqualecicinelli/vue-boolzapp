@@ -24,7 +24,6 @@
 
     <!--JS-->
 
-    <script src="./JS/function.js" defer></script>
     <script src="./JS/main.js" defer></script>
 
     <!--CSS-->
@@ -33,19 +32,22 @@
 </head>
 
 <body>
+
     <!-- STRUTTURA DI SINISTRA -->
+
     <div class="wrapper d-flex justify-content-center align-items-center" id="app">
 
         <div class="container gx-0 d-flex">
 
             <div class="container-contact">
 
+                <!--LEFT NAVBAR-->
+
                 <nav class="navbar navbar-expand-lg bg-light d-flex justify-content-between">
                     <div class="container-fluid">
                         <div class="navImgName">
-                            img
-                            <img src="" alt="">
-                            <a class="navbar-brand" href="#">Name</a>
+                            <img src="./img/avatar_io.jpg" alt="">
+                            <a class="navbar-brand" href="#">Sofia</a>
                         </div>
 
                         <div class="navbar-left">
@@ -65,6 +67,8 @@
                         </div>
                 </nav>
 
+                <!--CENTRO NOTIFICHE-->
+
                 <div class="no-notifiche d-flex">
 
                     <div class="notifica">
@@ -77,62 +81,28 @@
 
                 </div>
 
+                <!--BARRA DI RICERCA-->
+
                 <div class="container-fluid mt-2">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex justify-content-center" role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     </form>
                 </div>
 
+                <!--BARRA UTENTI-->
+
                 <div class="container-card d-flex flex-wrap justify-content-center">
-                    <div class="card d-flex flex-wrap">
-                        img
-                        <img src="" alt="">
-                        <div class="user">
-                            <span>name</span><span>last message</span>
+                    <div v-for="(user, indexUser) in contacts" class="card d-flex flex-wrap"
+                        :class="(indexUser == count) ? 'active': ''" @click="chousenUser(indexUser)">
+
+                        <img :src="user.avatar" alt="">
+                        <div class="utente">
+                            <span> {{ user.name }} </span>
+                            <span> last message</span>
+                            <span>time</span>
                         </div>
                     </div>
-                    <div class="card ">
-                        img
-                        <img src="" alt="">
-                        <div class="user">
-                            <span>name</span><span>last message</span>
-                        </div>
-                    </div>
-                    <div class="card ">
-                        img
-                        <img src="" alt="">
-                        <div class="user">
-                            <span>name</span><span>last message</span>
-                        </div>
-                    </div>
-                    <div class="card ">
-                        img
-                        <img src="" alt="">
-                        <div class="user">
-                            <span>name</span><span>last message</span>
-                        </div>
-                    </div>
-                    <div class="card ">
-                        img
-                        <img src="" alt="">
-                        <div class="user">
-                            <span>name</span><span>last message</span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        img
-                        <img src="" alt="">
-                        <div class="user">
-                            <span>name</span><span>last message</span>
-                        </div>
-                    </div>
-                    <div class="card ">
-                        img
-                        <img src="" alt="">
-                        <div class="user">
-                            <span>name</span><span>last message</span>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 
@@ -140,14 +110,18 @@
 
             <div class="container-message">
 
-                <nav class="navbar navbar-expand-lg bg-light d-flex justify-content-between">
+                <!--RIGHT NAVBAR-->
+
+                <nav class="navbar navbar-expand-lg bg-light d-flex  justify-content-between align-items-center">
                     <div class="navImgName">
-                        <div class="imagine">
-                            img
-                            <img src="" alt="">
+                        <div class="userActive">
+
+                            <img :src="contacts[count].avatar" alt="">
+
                         </div>
+
                         <div class="info">
-                            <a class="navbar-brand" href="#">Name</a>
+                            <a class="navbar-brand" href="#">{{ contacts[count].name }}</a>
                             <a class="navbar-brand" href="#">Ultimo accesso</a>
                         </div>
                     </div>
@@ -169,21 +143,29 @@
                     </div>
                 </nav>
 
-                <div class="contenitore-messaggi">
-                    <div class="message utente-green"> messaggi</div>
+                <!--CONTENITORE DEI MESSAGGI-->
 
-                    <div class="message interlocutore-white">messaggi</div>
-                    <div class="message">messaggi</div>
-                    <div class="message">messaggi</div>
-                    <div class="message">messaggi</div>
-                    <div class="message">messaggi</div>
-                    <div class="message">messaggi</div>
+                <div class="contenitore-messaggi">
+
+                    <div v-for="(singleContact, index) in contacts[count].messages" :class="(singleContact.status=='sent' ) ? 'utente-green'
+                        : 'interlocutore-white'">
+                        <div class="message-class">
+                            {{ singleContact.message }}
+                        </div>
+
+                    </div>
 
                 </div>
 
-                <div class="footer-container">
-                    <input class="form-control" type="text" placeholder="Default input"
-                        aria-label="default input example">
+                <div class="footer-container d-flex justify-content-between align-items-center">
+
+                    <div>smile</div>
+
+                    <!--NON FUNZIONA-->
+
+                    <input class="form-control" type="text"
+                        placeholder="Default input" aria-label="default input example">
+                    <div>microfono</div>
                 </div>
             </div>
 
