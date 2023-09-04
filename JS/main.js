@@ -4,10 +4,6 @@ createApp({
     data() {
         return {
 
-            count: 0,
-            newDate: 'today',
-            newMessage: '',
-
             contacts: [
                 {
                     name: 'Michele',
@@ -170,7 +166,16 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            count: 0,
+            newDate: '04/09/2023 15:51:00',
+            newMessage: '',
+            newStatus: 'sent',
+
+            newAnswer: 'ok',
+            newStatusAnswer: 'received',
+            timeDate: '',
+            AutoMessValue: false,
         }
     },
     methods: {
@@ -178,6 +183,79 @@ createApp({
             this.count = indexUser;
         },
 
-    }
+
+        /* 
+        //STAMPARE SOLO UNA PARTE DELLA DATE non funziona
+
+ @click="sliceDate(index)"
+ 
+        sliceDate(index) {
+
+            this.contacts[index].messages[index].date.slice(11, -3);
+            console.log(this.contacts[index].messages[index].date.slice(11, -3));
+
+
+        }
+
+// FILTRO PER CERCARE UN NOME NON FUNZIONA
+        filters: {
+            filterName(name) {
+                if (!this.name) return ''
+                this.name = this.name.toString()
+                return this.name.charAt(0) + this.name.slice(1)
+            }
+        }
+        */
+        
+        //NON FUNZIONA
+        /*
+        autoMessage(count) {
+           if (!this.AutoMessValue) {
+               this.AutoMessValue = setInterval(() => {
+        
+                   this.contacts[count].messages.push({
+                       message: newAnswer,
+                       date: this.newDate,
+                       status: this.newStatusAnswer,
+                   })
+               }, 1000);
+           }
+        },
+        
+        stopAutoMessage() {
+           if (this.AutoMessValue) {
+               clearInterval(this.AutoMessValue);
+               this.AutoMessValue = false;
+           }
+        },
+        */
+        
+        addNewMessage(count) {
+            this.contacts[count].messages.push({
+                message: this.newMessage,
+                date: this.newDate,
+                status: this.newStatus,
+            })
+            console.log(this.newMessage);
+            this.newMessage = " ";
+            this.AutoMessValue = true;
+        },
+
+        //NON FUNZIONA
+
+        pressEnter(enter) {
+            if (enter.key == "Enter") this.addNewMessage();
+            console.log('enter' + this.pressEnter);
+            console.log(enter.key);
+        },
+    },
+
+    created() {
+
+        window.addEventListener('keypress', this.pressEnter);
+
+        //this.autoMessage();
+
+    },
 
 }).mount('#app')

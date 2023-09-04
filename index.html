@@ -87,6 +87,10 @@
                     <form class="d-flex justify-content-center" role="search">
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     </form>
+                    <!--NON FUNZIONA
+                    <div v-bind:id="rawId | formatId">
+                        {{ name }}
+                    </div>-->
                 </div>
 
                 <!--BARRA UTENTI-->
@@ -108,7 +112,7 @@
 
             <!-- STRUTTURA DI DESTRA -->
 
-            <div class="container-message">
+            <div class="container-chat">
 
                 <!--RIGHT NAVBAR-->
 
@@ -147,24 +151,29 @@
 
                 <div class="contenitore-messaggi">
 
-                    <div v-for="(singleContact, index) in contacts[count].messages" :class="(singleContact.status=='sent' ) ? 'utente-green'
+                    <div class="message-class" v-for="(singleContact, index) in contacts[count].messages" :class="(singleContact.status=='sent' ) ? 'utente-green'
                         : 'interlocutore-white'">
-                        <div class="message-class">
-                            {{ singleContact.message }}
-                        </div>
+
+                        {{ singleContact.message }}
+
+                        <div>{{ singleContact.date }}</div>
+
+
 
                     </div>
 
                 </div>
 
+                <!-- da inserire nell'input  @keyup.enter="autoMessage(count)"  @keyup.enter="stopAutoMessage()" -->
+
                 <div class="footer-container d-flex justify-content-between align-items-center">
 
                     <div>smile</div>
 
-                    <!--NON FUNZIONA-->
+                    <input v-model="newMessage" @keyup.enter="addNewMessage(count)" class="form-control" type="text"
+                        placeholder="Scrivi un messaggio" aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
 
-                    <input class="form-control" type="text"
-                        placeholder="Default input" aria-label="default input example">
                     <div>microfono</div>
                 </div>
             </div>

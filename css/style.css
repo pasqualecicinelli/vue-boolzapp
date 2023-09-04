@@ -7,11 +7,11 @@
 .wrapper {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(180deg, rgb(0, 150, 136)20%, rgb(220, 212, 206)20%);
+    background: linear-gradient(180deg, rgb(0, 150, 136)15%, rgb(220, 212, 206)15%);
 }
 
 .container {
-    max-width: 80%;
+    max-width: 1300px;
     height: 95%;
     background-color: white;
 
@@ -23,10 +23,12 @@
     background-color: antiquewhite;
 }
 
-.container-message {
+.container-chat {
     width: 65%;
-    height: 100%;
-    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../img/mine.jpg);
+
 }
 
 .container-card {
@@ -35,8 +37,10 @@
 }
 
 .contenitore-messaggi {
-    width: 100%;
-    min-height: 630px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-height: calc(100% - 180px);
     margin: 10px 50px
 }
 
@@ -64,7 +68,7 @@
 
 }
 
-.navImgName{
+.navImgName {
     width: 100%;
     display: flex;
     align-items: center;
@@ -76,12 +80,12 @@
     line-height: 80px;
 }
 
-.userActive>img{
+.userActive>img {
     margin-top: 0.75rem;
 }
 
-.info{
-width: 100%;
+.info {
+    width: 100%;
 
 }
 
@@ -92,30 +96,32 @@ img {
     vertical-align: inherit;
 }
 
-.container-fluid>.navImgName>img{
-    min-width:50px;
+.container-fluid>.navImgName>img {
+    min-width: 50px;
+}
+
+.message-class {
+    max-width: 65%;
+    border-radius: 5px;
+    padding: 0.5rem;
+
 }
 
 .utente-green {
     background-color: #D5F9BA;
-    text-align: right;
-}
-
-.message-class {
-    width: 400px;
-    height: 40px;
+    align-self: flex-end;
 }
 
 .interlocutore-white {
-
     background-color: white;
+    align-self: flex-start;
 
 }
 
 .utente-green,
 .interlocutore-white {
-    width: 60%;
-    margin-top: 50px;
+    width: 45%;
+    margin-top: 10px;
 }
 
 .footer-container {
@@ -124,7 +130,7 @@ img {
     background-color: #8EDAFC;
 }
 
-.footer-container>.form-control{
+.footer-container>.form-control {
     width: 80%;
     height: 50px;
 }
