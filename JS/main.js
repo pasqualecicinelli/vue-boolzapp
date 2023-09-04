@@ -175,7 +175,7 @@ createApp({
             newAnswer: 'ok',
             newStatusAnswer: 'received',
             timeDate: '',
-            AutoMessValue: false,
+
         }
     },
     methods: {
@@ -206,56 +206,28 @@ createApp({
             }
         }
         */
-        
-        //NON FUNZIONA
-        /*
-        autoMessage(count) {
-           if (!this.AutoMessValue) {
-               this.AutoMessValue = setInterval(() => {
-        
-                   this.contacts[count].messages.push({
-                       message: newAnswer,
-                       date: this.newDate,
-                       status: this.newStatusAnswer,
-                   })
-               }, 1000);
-           }
-        },
-        
-        stopAutoMessage() {
-           if (this.AutoMessValue) {
-               clearInterval(this.AutoMessValue);
-               this.AutoMessValue = false;
-           }
-        },
-        */
-        
-        addNewMessage(count) {
-            this.contacts[count].messages.push({
+
+        addNewMessage() {
+            this.contacts[this.count].messages.push({
                 message: this.newMessage,
                 date: this.newDate,
                 status: this.newStatus,
             })
-            console.log(this.newMessage);
+
             this.newMessage = " ";
-            this.AutoMessValue = true;
+            setTimeout(() => {
+
+                this.contacts[this.count].messages.push({
+                    message: this.newAnswer,
+                    date: this.newDate,
+                    status: this.newStatusAnswer,
+                })
+
+            }, 1000);
+            
         },
 
-        //NON FUNZIONA
-
-        pressEnter(enter) {
-            if (enter.key == "Enter") this.addNewMessage();
-            console.log('enter' + this.pressEnter);
-            console.log(enter.key);
-        },
     },
 
-    created() {
-
-        window.addEventListener('keypress', this.pressEnter);
-
-        //this.autoMessage();
-
-    },
 
 }).mount('#app')
