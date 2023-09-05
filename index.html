@@ -18,9 +18,9 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-       <!--LUXON DATE-->
+    <!--LUXON DATE-->
 
-       <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.2/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.2/build/global/luxon.min.js"></script>
 
     <!--VUE JS-->
 
@@ -160,7 +160,12 @@
                     <div class="message-class" v-for="(singleContact, index) in contacts[countActive].messages" :class="(singleContact.status=='sent' ) ? 'utente-green'
                         : 'interlocutore-white'">
 
-                        {{ singleContact.message }}
+
+
+
+                        <div class="d-flex justify-content-between">{{ singleContact.message }}
+                            <button class="btn" @click="deleteMessage(index)"><i class="fa-solid fa-trash"></i></button>
+                        </div>
 
                         <div>{{ singleContact.date }}</div>
 

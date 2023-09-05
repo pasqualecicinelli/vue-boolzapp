@@ -181,10 +181,6 @@ createApp({
         }
     },
 
-
-
-
-
     methods: {
         chousenUser(indexUser) {
             this.countActive = indexUser;
@@ -204,9 +200,20 @@ createApp({
 
         }*/
 
+
+// TROVA L'ELEMENTO CHE VOGLIO ELIMINARE MA NON LO ELIMINA
+
+        deleteMessage(index) {
+            const elimina = this.contacts[this.countActive].messages[index];
+            console.log(elimina);
+
+            console.log(index,this.countActive);
+
+            elimina.splice(index,this.countActive, 1); 
+            
+        },
+
         searchName() {
-
-
 
             const cercaNome = this.search.toLowerCase()
 
