@@ -1,3 +1,4 @@
+var DateTime = luxon.DateTime;
 const { createApp } = Vue
 
 createApp({
@@ -167,20 +168,26 @@ createApp({
                     ],
                 }
             ],
-            count: 0,
-            newDate: '04/09/2023 15:51:00',
+            countActive: 0,
             newMessage: '',
             newStatus: 'sent',
-
+            search: '',
             newAnswer: 'ok',
             newStatusAnswer: 'received',
+
+            newDate: '04/09/2023 15:51:00',
             timeDate: '',
 
         }
     },
+
+
+
+
+
     methods: {
         chousenUser(indexUser) {
-            this.count = indexUser;
+            this.countActive = indexUser;
         },
 
 
@@ -195,20 +202,35 @@ createApp({
             console.log(this.contacts[index].messages[index].date.slice(11, -3));
 
 
-        }
+        }*/
 
-// FILTRO PER CERCARE UN NOME NON FUNZIONA
-        filters: {
-            filterName(name) {
-                if (!this.name) return ''
-                this.name = this.name.toString()
-                return this.name.charAt(0) + this.name.slice(1)
+        searchName() {
+
+
+
+            const cercaNome = this.search.toLowerCase()
+
+
+            for (i = 0; i < this.contacts.length; i++) {
+
+                if (this.contacts[i].name.toLowerCase().includes(cercaNome)) {
+
+                    this.contacts[i].visible = true;
+
+                } else {
+
+                    this.contacts[i].visible = false;
+
+                }
+
+
             }
-        }
-        */
+        },
+
+
 
         addNewMessage() {
-            this.contacts[this.count].messages.push({
+            this.contacts[this.countActive].messages.push({
                 message: this.newMessage,
                 date: this.newDate,
                 status: this.newStatus,
@@ -217,14 +239,14 @@ createApp({
             this.newMessage = " ";
             setTimeout(() => {
 
-                this.contacts[this.count].messages.push({
+                this.contacts[this.countActive].messages.push({
                     message: this.newAnswer,
                     date: this.newDate,
                     status: this.newStatusAnswer,
                 })
 
             }, 1000);
-            
+
         },
 
     },
