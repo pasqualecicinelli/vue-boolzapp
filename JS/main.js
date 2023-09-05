@@ -201,22 +201,21 @@ createApp({
         }*/
 
 
-// TROVA L'ELEMENTO CHE VOGLIO ELIMINARE MA NON LO ELIMINA
+        // TROVA L'ELEMENTO CHE VOGLIO ELIMINARE MA NON LO ELIMINA
 
         deleteMessage(index) {
-            const elimina = this.contacts[this.countActive].messages[index];
+            const elimina = this.contacts[this.countActive].messages;
             console.log(elimina);
 
-            console.log(index,this.countActive);
+            console.log(index, this.countActive);
 
-            elimina.splice(index,this.countActive, 1); 
-            
+            elimina.splice(index, 1);
+
         },
 
         searchName() {
 
             const cercaNome = this.search.toLowerCase()
-
 
             for (i = 0; i < this.contacts.length; i++) {
 
